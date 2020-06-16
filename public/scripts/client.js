@@ -14,9 +14,15 @@ $(document).ready(function () {
     const payload = $(this).serialize();
     const tweetToPost = $('#tweet-text').val();
     if (tweetToPost.length === 0) {
-      window.alert("This tweet is empty");
+      $("#error-message").text("Dis tweet empty!");
+      $("#error-message").slideDown("slow", function() {
+      });
+      // window.alert("This tweet is empty");
     } else if (tweetToPost.length > 140) {
-      window.alert("This tweet is too long!");
+      $("#error-message").text("Dis tweet too long!");
+      $("#error-message").slideDown("slow", function() {
+      });
+      // window.alert("This tweet is too long!");
     } else {
       $.ajax({
         type: "POST",
@@ -24,6 +30,9 @@ $(document).ready(function () {
         data: payload,
       })
         .then(function(data) {
+          $("#error-message").slideUp("slow", function() {
+          });
+          $('#tweet-text').val("");
           console.log("Data posted to tweet database.");
           console.log(data);
           loadLatestTweet();

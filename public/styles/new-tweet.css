@@ -108,6 +108,17 @@ div.tweet-username{
   display: none;
 }
 
+#error-message{
+  color: #721c24;
+  background-color: #f8d7da;
+  border: #f5c6cb 1px solid;
+  padding: 0.75rem 1.25rem 0.75rem 1.25rem;
+  margin-bottom: 1em;
+  border-radius: .25rem;
+  text-align: center;
+  display: none;
+}
+
 span.username {
   color: #837f75;
   padding-right: 1em;
