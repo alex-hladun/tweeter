@@ -6,46 +6,40 @@
  */
 
 $(document).ready(function () {
+  loadTweets();
 
-  renderTweets(data);
-  
+  $("#submit-tweet-form").submit(function (event) {
+    event.preventDefault();
 
-  $("article.tweet").hover(function () {
-    let username = $(this).children('header').children()[1];
-    $(username).toggle();
-  }, function () {
-    let username = $(this).children('header').children()[1];
-    $(username).toggle();
-  });
+    const payload = $(this).serialize();
+    const tweetToPost = $('#tweet-text').val();
+    if (tweetToPost.length === 0) {
+      window.alert("This tweet is empty");
+    } else if (tweetToPost.length > 140) {
+      window.alert("This tweet is too long!");
+    } else {
+      $.ajax({
+        type: "POST",
+        url: '/tweets',
+        data: payload,
+      })
+        .then(function(data) {
+          console.log("Data posted to tweet database.");
+          console.log(data);
+          loadLatestTweet();
+        });
 
+    }
+  }
+  );
 });
 
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
 const createTweetElement = (tweetData) => {
+
+  
+
+  
+
   let date1 = new Date();
   let date2 = tweetData.created_at;
   let differenceInTime = date1.getTime() - date2;
@@ -69,7 +63,7 @@ const createTweetElement = (tweetData) => {
     </div>
   </header>
   <section>
-    <span>${tweetData.content.text}</span>
+    <span>${escape(tweetData.content.text)}</span>
   </section>
   <footer>
     <div class="tweet-info-group">
@@ -84,11 +78,59 @@ const createTweetElement = (tweetData) => {
 };
 
 const renderTweets = (tweets) => {
+  console.log(tweets);
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet);
     $('#tweet-container').append($tweet);
   }
 };
+
+const loadTweets = () => {
+  $.ajax('/tweets', { method: 'GET' })
+    .then(function (data) {
+      console.log('Success: ', data);
+      const tweetArray = [];
+      for (const obj of data) {
+        tweetArray.push(obj);
+      }
+      renderTweets(tweetArray);
+
+      $("article.tweet").hover(function () {
+        let username = $(this).children('header').children()[1];
+        $(username).toggle();
+      }, function () {
+        let username = $(this).children('header').children()[1];
+        $(username).toggle();
+      });
+    });
+};
+
+const escape =  function(str) {
+  let div = document.createElement('span');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
+const loadLatestTweet = () => {
+  $.ajax('/tweets', { method: 'GET' })
+    .then(function (data) {
+      console.log('Success: ', data);
+      const tweetArray = [];
+
+      // const keys = Object.keys(data);
+      // const last = keys[keys.length-1];
+
+      let x = 0;
+      for (const obj of data) {
+        if (x === data.length - 1) {
+          tweetArray.push(obj);
+        }
+        x++;
+      }
+      renderTweets(tweetArray);
+    });
+};
+
 
 
 

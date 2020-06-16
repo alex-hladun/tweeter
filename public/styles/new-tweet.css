@@ -62,7 +62,7 @@ button {
 
 .tweet-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: flex-start;
   align-content: center;
   margin: 1em;

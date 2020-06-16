@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 $(document).ready(function() {
 
   $('#tweet-text').keyup(function() {
