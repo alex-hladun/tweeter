@@ -41,6 +41,49 @@ $(document).ready(function () {
     }
   }
   );
+
+  // FAB button
+  $('button.back-to-tweet-compose').click(function(event) {
+    console.log("FAB clicked");
+    $("#compose-tweet-form").slideDown("slow", function() {
+    });
+    $("#error-message").slideUp("slow", function() {
+    });
+    $("#tweet-text").focus();
+  });
+
+  // Slide-down for compose tweet.
+  $("a.write-text").click(function (event) {
+    event.preventDefault();
+    $("#compose-tweet-form").slideToggle("slow", function() {
+    });
+    $("#error-message").slideUp("slow", function() {
+    });
+    $("#tweet-text").focus();
+  });
+  
+  const amountScrolled = 330;
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > amountScrolled) {
+      $('button.back-to-tweet-compose').addClass("show");
+      $('a.write-text').addClass("hide");
+    } else {
+      $('button.back-to-tweet-compose').removeClass("show");
+      $('a.write-text').removeClass("hide");
+    }
+  });
+
+
+// $('button.back-to-top').click(function() {
+//   $('html, body').animate({
+//     scrollTop: 0
+//   }, 800);
+//   return false;
+// });
+
+
+
+
 });
 
 const createTweetElement = (tweetData) => {
@@ -136,7 +179,16 @@ const loadLatestTweet = () => {
         }
         x++;
       }
+
       renderTweets(tweetArray);
+
+      $("article.tweet").hover(function () {
+        let newusername = $(this).children('header').children()[1];
+        $(newusername).toggle();
+      }, function () {
+        let newusername = $(this).children('header').children()[1];
+        $(newusername).toggle();
+      });
     });
 };
 

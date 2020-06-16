@@ -1,14 +1,23 @@
 nav {
   height: 120px;
   width: 100%;
-  background-color: #4056A1;
+  /* background-color: #4056A1; */
   color: #ffffff;
   padding: 1.5em;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position:fixed;
+  
+}
+
+#tweeter-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.float-nav-element {
   top : 0;
+  position:fixed;
 }
 
 nav span {
@@ -16,8 +25,19 @@ nav span {
   font-size: 36px;
 }
 
+/* The 'compose tweet' button at top right */
 .write-text {
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a.write-text.hide{
+  visibility: hidden;
+}
+
+#compose-tweet-form {
+  display: none;
 }

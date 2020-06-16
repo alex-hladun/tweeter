@@ -26,26 +26,27 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav id="tweeter-header">
-      <span>tweeter</span>
-      <h6 class="write-text"><strong>Write</strong> a new tweet</h2>
+    <nav id="tweeter-header" class="float-nav-element">
+      <span >tweeter</span>
+      <a class="write-text" href=/#write-tweet type="submit"><strong>Write</strong> a new tweet</a>
+
     </nav>
 
-    <header class="header-background">
+    <header id="user-background" class="header-background">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
       <br>
       <div>
-          <h2>Your Name</h2>
+          <h2><strong>Alex</strong> Appleseed</h2>
       </div>
   </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <P>Cupcake ipsum dolor. Sit amet marshmallow topping cheesecake muffin. Halvah croissant candy canes bonbon candy. Apple pie jelly beans topping carrot cake danish tart cake cheesecake. Muffin danish chocolate soufflé pastry icing bonbon oat cake. Powder cake jujubes oat cake. Lemon drops tootsie roll marshmallow halvah carrot cake.</P>
-      
-      <section class="new-tweet">
+      <!-- <P>Cupcake ipsum dolor. Sit amet marshmallow topping cheesecake muffin. Halvah croissant candy canes bonbon candy. Apple pie jelly beans topping carrot cake danish tart cake cheesecake. Muffin danish chocolate soufflé pastry icing bonbon oat cake. Powder cake jujubes oat cake. Lemon drops tootsie roll marshmallow halvah carrot cake.</P> -->
+
+      <section class="new-tweet" id="compose-tweet-form">
         <h2 id="compose">Compose Tweet</h2>
         <form id="submit-tweet-form" action="/tweets" method="POST">
           <label for="tweet-text">What are you humming about?</label>
@@ -65,6 +66,8 @@
       <section id="tweet-container" class="tweet-list">
         </article>
       </section>
+
+      <button class="back-to-tweet-compose" type="button">^</button>
 
     </main>
   </body>
