@@ -5,20 +5,20 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$(document).ready(function () {
+$(document).ready(function() {
   loadTweets();
 
-  $("#submit-tweet-form").submit(function (event) {
+  $("#submit-tweet-form").submit(function(event) {
     event.preventDefault();
     const payload = $(this).serialize();
     const tweetToPost = $('#tweet-text').val();
     if (tweetToPost.length === 0) {
       $("#error-message").text("Your tweet is empty!");
-      $("#error-message").slideDown("slow", function () {
+      $("#error-message").slideDown("slow", function() {
       });
     } else if (tweetToPost.length > 140) {
       $("#error-message").text("Your tweet is too long!");
-      $("#error-message").slideDown("slow", function () {
+      $("#error-message").slideDown("slow", function() {
       });
     } else {
       $.ajax({
@@ -26,8 +26,8 @@ $(document).ready(function () {
         url: '/tweets',
         data: payload,
       })
-        .then(function () {
-          $("#error-message").slideUp("slow", function () {
+        .then(function() {
+          $("#error-message").slideUp("slow", function() {
           });
           $('#tweet-text').val("");
           $('#char-counter').val('140');
@@ -38,21 +38,21 @@ $(document).ready(function () {
   );
 
   // FAB button
-  $('button.back-to-tweet-compose').click(function () {
+  $('button.back-to-tweet-compose').click(function() {
     console.log("FAB clicked");
-    $("#compose-tweet-form").slideDown("slow", function () {
+    $("#compose-tweet-form").slideDown("slow", function() {
     });
-    $("#error-message").slideUp("slow", function () {
+    $("#error-message").slideUp("slow", function() {
     });
     $("#tweet-text").focus();
   });
 
   // Slide-down for compose tweet.
-  $("a.write-text").click(function (event) {
+  $("a.write-text").click(function(event) {
     event.preventDefault();
-    $("#compose-tweet-form").slideToggle("slow", function () {
+    $("#compose-tweet-form").slideToggle("slow", function() {
     });
-    $("#error-message").slideUp("slow", function () {
+    $("#error-message").slideUp("slow", function() {
     });
     $("#tweet-text").focus();
   });
@@ -60,10 +60,10 @@ $(document).ready(function () {
   // Toggle FAB if not in desktop mode.
   specifyFab();
 
-  $(window).on('resize', function () {
+  $(window).on('resize', function() {
     specifyFab();
   });
-  $(window).scroll(function () {
+  $(window).scroll(function() {
     console.log('scroll');
     specifyFab();
   });
@@ -138,9 +138,9 @@ const createTweetElement = (tweetData) => {
 };
 
 const applyUsernameHover = () => {
-  $("article.tweet").hover(function () {
+  $("article.tweet").hover(function() {
     $(this).find('.username').show();
-  }, function () {
+  }, function() {
     $(this).find('.username').hide();
   });
 };
@@ -154,7 +154,7 @@ const renderTweets = (tweets) => {
 
 const loadTweets = () => {
   $.ajax('/tweets', { method: 'GET' })
-    .then(function (data) {
+    .then(function(data) {
       console.log('Success: ', data);
       const tweetArray = [];
       for (const obj of data) {
@@ -165,7 +165,7 @@ const loadTweets = () => {
     });
 };
 
-const escape = function (str) {
+const escape = function(str) {
   let div = document.createElement('span');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -173,7 +173,7 @@ const escape = function (str) {
 
 const loadLatestTweet = () => {
   $.ajax('/tweets', { method: 'GET' })
-    .then(function (data) {
+    .then(function(data) {
       console.log('Success: ', data);
       const tweetArray = [];
       let x = 0;
