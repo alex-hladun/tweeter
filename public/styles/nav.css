@@ -34,10 +34,24 @@ nav span {
   text-decoration: none;
 }
 
+/* Toggles visibility later in jQuery */
 a.write-text.hide{
   visibility: hidden;
 }
 
 #compose-tweet-form {
   display: none;
+}
+
+/* switch to  desktop-mode */
+@media only screen and (min-width: 1024px) {
+  .float-nav-element {
+    position: fixed;
+    background-color: #4056A1;
+  }
+
+  #compose-tweet-form {
+    display: block;
+  }
+
 }

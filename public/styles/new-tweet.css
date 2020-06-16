@@ -171,3 +171,11 @@ button.back-to-tweet-compose:hover {
 button.back-to-tweet-compose.show{
   visibility: visible;
 }
+
+
+@media only screen and (min-width: 1024px) {
+  header.header-background {
+    margin-top: 120px;
+  }
+
+}

@@ -31,8 +31,13 @@ main {
   background-color: #f4f1ec;
 }
 
+@media only screen and (min-width: 1024px) {
+  body {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+  main {
+    margin-top: 120px;
+  }
+}

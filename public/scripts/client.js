@@ -62,14 +62,25 @@ $(document).ready(function () {
     $("#tweet-text").focus();
   });
   
-  const amountScrolled = 330;
-  $(window).scroll(function() {
-    if ($(window).scrollTop() > amountScrolled) {
-      $('button.back-to-tweet-compose').addClass("show");
-      $('a.write-text').addClass("hide");
+
+  // Toggle FAB if not in desktop mode.
+  $(window).on('resize', function() {
+    console.log($(window).width());
+    if ($(window).width() < 1024) {
+
+      const amountScrolled = 330;
+      $(window).scroll(function() {
+        if ($(window).scrollTop() > amountScrolled) {
+          $('button.back-to-tweet-compose').addClass("show");
+          $('a.write-text').addClass("hide");
+        } else {
+          $('button.back-to-tweet-compose').removeClass("show");
+          $('a.write-text').removeClass("hide");
+        }
+      });
     } else {
-      $('button.back-to-tweet-compose').removeClass("show");
-      $('a.write-text').removeClass("hide");
+      // Need to un-bind
+      $(window).off('scroll');
     }
   });
 
