@@ -7,10 +7,12 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-nav span {
-  font-family: "Bungee", cursive;
-  font-size: 36px;
+
+  span {
+    font-family: 'Bungee', cursive; 
+    font-size: 36px;
+  }
+  
 }
 
 #tweeter-header {
@@ -18,25 +20,23 @@ nav span {
   flex-direction: row;
   justify-content: space-between;
 }
-
 .float-nav-element {
-  top: 0;
-  position: fixed;
+  top : 0;
+  position:fixed;
 }
+
 
 /* The 'compose tweet' button at top right */
 .write-text {
   font-size: 24px;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
   color: #ffffff;
   text-decoration: none;
-  padding: 0.5em;
-  border: 2px solid white;
 }
 
 /* Toggles visibility later in jQuery */
-a.write-text.hide {
+a.write-text.hide{
   visibility: hidden;
 }
 
@@ -54,6 +54,5 @@ a.write-text.hide {
   #compose-tweet-form {
     display: block;
   }
-}
 
-/*# sourceMappingURL=nav.css.map */
+}

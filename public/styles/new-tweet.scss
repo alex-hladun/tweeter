@@ -1,3 +1,6 @@
+$facebook-blue: #4056A1;
+$fb-hover: #506fd4;
+
 .new-tweet {
   width: 100%;
   display: flex;
@@ -5,8 +8,6 @@
   align-items: center;
   padding: 2em;
 }
-
-
 
 form {
   display: flex;
@@ -18,19 +19,15 @@ form {
   color: red;
 }
 
-label.tweet-label {
-  margin-bottom: 1em;
-}
-
 #tweet-text {
   width: 100%;
-  height: 3em;
+  align-self: start;
   border: 0px;
   border-bottom: 4px solid #545149;
   background-color: #f4f1ec;
+  /* padding-bottom: 2em; */
   margin-bottom: 0.5em;
   resize: none;
-  outline: none;
 }
 
 #compose {
@@ -45,11 +42,11 @@ label.tweet-label {
 }
 
 button {
-  font-family: "Bungee", cursive;
+  font-family: 'Bungee', cursive; 
   font-size: 0.75em;
-  background-color: #4056A1;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  background-color: $facebook-blue;
+  padding-top: .5em;
+  padding-bottom: .5em;
   padding-left: 1em;
   padding-right: 1em;
   color: #FFFFFF;
@@ -58,7 +55,7 @@ button {
 
 .counter {
   font-size: 0.75em;
-  font-family: "Bungee", cursive;
+  font-family: 'Bungee', cursive;  
 }
 
 .tweet-list {
@@ -92,7 +89,6 @@ article.tweet {
   padding: 0.5em;
   margin-bottom: 1em;
 }
-
 article.tweet:hover {
   box-shadow: 0.5em 0.5em grey;
   text-shadow: 0.2px 0.2px;
@@ -106,38 +102,30 @@ article.tweet header {
   color: #837f75;
 }
 
-#error-message {
+div.tweet-username{
+  display: none;
+}
+
+#error-message{
   color: #721c24;
   background-color: #f8d7da;
   border: #f5c6cb 1px solid;
   padding: 0.75rem 1.25rem 0.75rem 1.25rem;
   margin-bottom: 1em;
-  border-radius: 0.25rem;
+  border-radius: .25rem;
   text-align: center;
   display: none;
-}
-
-span.tweet {
-  display: block;
-  overflow-wrap: break-word;
 }
 
 span.username {
   color: #837f75;
   padding-right: 1em;
-  display: none;
-}
-
-span.username.show{
-  color: #837f75;
-  padding-right: 1em;
-  display: flex;
 }
 
 article.tweet section {
-  display: inline-block;
+  display: flex;
   width: 100%;
-  padding: 1em;
+  padding: 1.0em;
 }
 
 article.tweet footer {
@@ -153,43 +141,38 @@ article.tweet footer {
 
 span.symbols {
   color: #4056A1;
+
 }
 
-/* FAB */
 button.back-to-tweet-compose {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-color: #4056A1;
+  background-color: $facebook-blue;
+  background: url("../images/dark-wood.png");
   color: #f4f1ec;
   box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
   text-align: center;
   position: fixed;
   right: 50px;
   bottom: 50px;
+  /* display: none; */
   visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-img.fab {
-  max-width:70%;
-  max-height:70%;
 }
 
 button.back-to-tweet-compose:hover {
-  background-color: #506fd4;
+  background-color: $fb-hover;
+  
 }
 
-button.back-to-tweet-compose.show {
+button.back-to-tweet-compose.show{
   visibility: visible;
 }
+
 
 @media only screen and (min-width: 1024px) {
   header.header-background {
     margin-top: 120px;
   }
-}
 
-/*# sourceMappingURL=new-tweet.css.map */
+}

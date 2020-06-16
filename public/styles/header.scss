@@ -1,4 +1,6 @@
 /* This is the profile header, not the nav header */
+$facebook-blue: #4056A1;
+
 header.header-background {
   height: 400px;
   width: 100%;
@@ -8,7 +10,7 @@ header.header-background {
   /* margin-top: 120px; */
   flex-direction: column;
   align-items: center;
-  color: #ffffff;
+  color: #ffffff;;
   background: url("../images/dark-wood.png");
 }
 
@@ -16,15 +18,9 @@ header.header-background {
   background-color: #4056A1;
 }
 
-#tweeter-text.float {
-  background-color: #4056A1;
-  background: url("../images/dark-wood.png");
-}
-
 @media only screen and (min-width: 1024px) {
   header.header-background {
     margin-top: 120px;
   }
-}
 
-/*# sourceMappingURL=header.css.map */
+}

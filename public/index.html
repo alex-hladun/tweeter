@@ -27,7 +27,7 @@
   <body>
     <!-- Top nav bar (fixed) -->
     <nav id="tweeter-header" class="float-nav-element">
-      <span >tweeter</span>
+      <span id="tweeter-text">tweeter</span>
       <a class="write-text" href=/#write-tweet type="submit"><strong>Write</strong> a new tweet</a>
 
     </nav>
@@ -49,11 +49,11 @@
       <section class="new-tweet" id="compose-tweet-form">
         <h2 id="compose">Compose Tweet</h2>
         <form id="submit-tweet-form" action="/tweets" method="POST">
-          <label for="tweet-text">What are you humming about?</label>
+          <label for="tweet-text" class="tweet-label">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <div class="tweet-deets">
             <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+            <output name="counter" class="counter" for="tweet-text" id="char-counter">140</output>
           </div>
         </form>
       </section>
@@ -67,10 +67,10 @@
         </article>
       </section>
 
-      <button class="back-to-tweet-compose" type="button">^</button>
+      <button class="back-to-tweet-compose" type="button"><img class="fab" src="/images/arrowup.png"></button>
 
     </main>
   </body>
 
-
 </html>
+
