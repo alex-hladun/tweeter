@@ -9,7 +9,7 @@ nav {
 }
 nav span {
   font-family: "Bungee", cursive;
-  font-size: 36px;
+  font-size: 5vw;
 }
 
 #tweeter-header {
@@ -25,12 +25,13 @@ nav span {
 
 /* The 'compose tweet' button at top right */
 .write-text {
-  font-size: 24px;
+  width: 20%;
+  text-align: center;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
   color: #ffffff;
   text-decoration: none;
-  padding: 0.5em;
+  padding: 1vw;
   border: 2px solid white;
 }
 
@@ -52,6 +53,14 @@ a.write-text.hide {
 
   #compose-tweet-form {
     display: block;
+  }
+
+  .write-text {
+    width: auto;
+}
+
+  nav span {
+  font-size: xx-large;
   }
 }
 

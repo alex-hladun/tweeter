@@ -66,7 +66,8 @@ $(document).ready(function() {
 
 const specifyFab = () => {
   if ($(window).width() < 1024) {
-    const amountScrolled = 315;
+    const amountScrolled = 190;
+    console.log($(window).scrollTop());
     if ($(window).scrollTop() > amountScrolled) {
       // FAB
       $('button.back-to-tweet-compose').addClass("show");
@@ -111,7 +112,7 @@ const createTweetElement = (tweetData) => {
   const $tweet = $(`<article class="tweet">
   <header>
     <div class="tweet-info-group">
-      <img class="tweet-profile-picture" src="${tweetData.user.avatars}">
+      <img alt="tweet profile pic"class="tweet-profile-picture" src="${tweetData.user.avatars}">
       <span>${tweetData.user.name}</span>
     </div>
     <div class="tweetinfo-group tweet-username">
