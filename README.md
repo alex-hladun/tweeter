@@ -28,3 +28,9 @@ This project uses HTML, CSS, JS, jQuery and AJAX on the front-end as well as Nod
 - Chance
 - Express
 - md5
+
+# Known Bugs / Road Map
+- Issues with FAB appearing at different times for different screen sizes.
+- Can't post tweet with Cmd + Enter.
+- Add Flag / Retweet / Like functionality.
+- Add user database / login features.
