@@ -34,7 +34,6 @@ $(document).ready(function() {
 
   // FAB button
   $('button.back-to-tweet-compose').click(function() {
-    console.log("FAB clicked");
     $("#compose-tweet-form").slideDown("slow", function() {
     });
     $("#error-message").slideUp("slow", function() {
@@ -54,12 +53,10 @@ $(document).ready(function() {
 
   // Toggle FAB if not in desktop mode.
   specifyFab();
-
   $(window).on('resize', function() {
     specifyFab();
   });
   $(window).scroll(function() {
-    console.log('scroll');
     specifyFab();
   });
 });
@@ -67,7 +64,6 @@ $(document).ready(function() {
 const specifyFab = () => {
   if ($(window).width() < 1024) {
     const amountScrolled = 190;
-    console.log($(window).scrollTop());
     if ($(window).scrollTop() > amountScrolled) {
       // FAB
       $('button.back-to-tweet-compose').addClass("show");
@@ -107,8 +103,6 @@ const createTweetElement = (tweetData) => {
   } else {
     dateStr = differenceInDays.toFixed(0) + " days ago";
   }
-
-  console.log("datestr: ", dateStr);
   const $tweet = $(`<article class="tweet">
   <header>
     <div class="tweet-info-group">
@@ -151,7 +145,6 @@ const renderTweets = (tweets) => {
 const loadTweets = () => {
   $.ajax('/tweets', { method: 'GET' })
     .then(function(data) {
-      console.log('Success: ', data);
       const tweetArray = [];
       for (const obj of data) {
         tweetArray.push(obj);
@@ -170,7 +163,6 @@ const escape = function(str) {
 const loadLatestTweet = () => {
   $.ajax('/tweets', { method: 'GET' })
     .then(function(data) {
-      console.log('Success: ', data);
       const tweetArray = [];
       let x = 0;
       for (const obj of data) {
