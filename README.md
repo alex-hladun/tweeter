@@ -6,8 +6,11 @@ This project uses HTML, CSS, JS, jQuery and AJAX on the front-end as well as Nod
 
 # Final Product
 
-### Mobile / Tablet View
-!["Mobile / Tablet View"](docs/preview1.png)
+### Mobile View
+!["Mobile View"](docs/mobile.png)
+
+###  Tablet View
+!["Tablet View"](docs/preview1.png)
 
 ### Desktop View
 !["Desktop View"](docs/preview2.png)
