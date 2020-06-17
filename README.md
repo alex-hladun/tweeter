@@ -2,7 +2,7 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
-This project uses HTML, CSS, JS, jQuery and AJAX on the front-end as well as Node and Express on the back-end. It has features such as responsive design, server posting/retrieval with AJAX, and form validation.
+This project uses HTML, CSS, JS, jQuery and AJAX on the front-end as well as Node and Express on the back-end. It has features such as responsive design (mobile and desktop friendly), server posting/retrieval with AJAX, and form validation.
 
 # Final Product
 
