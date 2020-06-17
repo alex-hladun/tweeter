@@ -34,4 +34,4 @@ This project uses HTML, CSS, JS, jQuery and AJAX on the front-end as well as Nod
 - Can't post tweet with Cmd + Enter.
 - Add Flag / Retweet / Like functionality.
 - Add user database / login features.
-- Currently set up to only load the latest tweet from database when posting. If this have concurrent users, I would set up to remove / re-load all tweets. 
+- Currently set up to only load the latest tweet from database when posting. If implementing with concurrent users, I would set up to remove / re-load all tweets. 
